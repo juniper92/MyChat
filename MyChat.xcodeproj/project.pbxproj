@@ -11,6 +11,10 @@
 		215A8AEF27FD214D00084169 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215A8AEE27FD214D00084169 /* ContentView.swift */; };
 		215A8AF127FD214E00084169 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 215A8AF027FD214E00084169 /* Assets.xcassets */; };
 		215A8AF427FD214E00084169 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 215A8AF327FD214E00084169 /* Preview Assets.xcassets */; };
+		215A8B0327FD269600084169 /* ONE Mobile Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 215A8B0027FD269600084169 /* ONE Mobile Light.ttf */; };
+		215A8B0427FD269600084169 /* ONE Mobile Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 215A8B0127FD269600084169 /* ONE Mobile Regular.ttf */; };
+		215A8B0527FD269600084169 /* ONE Mobile Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 215A8B0227FD269600084169 /* ONE Mobile Bold.ttf */; };
+		215A8B0827FD296B00084169 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215A8B0727FD296B00084169 /* Fonts.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +23,11 @@
 		215A8AEE27FD214D00084169 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		215A8AF027FD214E00084169 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		215A8AF327FD214E00084169 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		215A8B0027FD269600084169 /* ONE Mobile Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ONE Mobile Light.ttf"; sourceTree = "<group>"; };
+		215A8B0127FD269600084169 /* ONE Mobile Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ONE Mobile Regular.ttf"; sourceTree = "<group>"; };
+		215A8B0227FD269600084169 /* ONE Mobile Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ONE Mobile Bold.ttf"; sourceTree = "<group>"; };
+		215A8B0627FD273C00084169 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		215A8B0727FD296B00084169 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,8 +60,14 @@
 		215A8AEB27FD214D00084169 /* MyChat */ = {
 			isa = PBXGroup;
 			children = (
+				215A8B0627FD273C00084169 /* Info.plist */,
 				215A8AEC27FD214D00084169 /* MyChatApp.swift */,
-				215A8AEE27FD214D00084169 /* ContentView.swift */,
+				215A8AFA27FD21B300084169 /* View */,
+				215A8AFB27FD21B600084169 /* ViewModel */,
+				215A8AFC27FD21B900084169 /* Model */,
+				215A8AFD27FD21BE00084169 /* Services */,
+				215A8AFE27FD21CD00084169 /* Helpers */,
+				215A8AFF27FD21DF00084169 /* Fonts */,
 				215A8AF027FD214E00084169 /* Assets.xcassets */,
 				215A8AF227FD214E00084169 /* Preview Content */,
 			);
@@ -65,6 +80,53 @@
 				215A8AF327FD214E00084169 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		215A8AFA27FD21B300084169 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				215A8AEE27FD214D00084169 /* ContentView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		215A8AFB27FD21B600084169 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		215A8AFC27FD21B900084169 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		215A8AFD27FD21BE00084169 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		215A8AFE27FD21CD00084169 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				215A8B0727FD296B00084169 /* Fonts.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		215A8AFF27FD21DF00084169 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				215A8B0227FD269600084169 /* ONE Mobile Bold.ttf */,
+				215A8B0027FD269600084169 /* ONE Mobile Light.ttf */,
+				215A8B0127FD269600084169 /* ONE Mobile Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +188,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				215A8AF427FD214E00084169 /* Preview Assets.xcassets in Resources */,
+				215A8B0327FD269600084169 /* ONE Mobile Light.ttf in Resources */,
+				215A8B0427FD269600084169 /* ONE Mobile Regular.ttf in Resources */,
+				215A8B0527FD269600084169 /* ONE Mobile Bold.ttf in Resources */,
 				215A8AF127FD214E00084169 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +203,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				215A8AEF27FD214D00084169 /* ContentView.swift in Sources */,
+				215A8B0827FD296B00084169 /* Fonts.swift in Sources */,
 				215A8AED27FD214D00084169 /* MyChatApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -270,6 +336,7 @@
 				DEVELOPMENT_TEAM = 5P89546L9R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MyChat/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -299,6 +366,7 @@
 				DEVELOPMENT_TEAM = 5P89546L9R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MyChat/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
