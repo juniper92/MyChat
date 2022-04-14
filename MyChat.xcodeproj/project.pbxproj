@@ -26,6 +26,14 @@
 		215A8B2227FD7C0300084169 /* FirebaseStorageSwift-Beta in Frameworks */ = {isa = PBXBuildFile; productRef = 215A8B2127FD7C0300084169 /* FirebaseStorageSwift-Beta */; };
 		215A8B2427FD7C6200084169 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215A8B2327FD7C6200084169 /* AppDelegate.swift */; };
 		215A8B2727FDA96D00084169 /* AuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 215A8B2627FDA96D00084169 /* AuthViewModel.swift */; };
+		21D2BEAF28073D060063F3DB /* OnboardingContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D2BEAE28073D060063F3DB /* OnboardingContainerView.swift */; };
+		21D2BEB128073E990063F3DB /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D2BEB028073E990063F3DB /* WelcomeView.swift */; };
+		21D2BEB328073EA50063F3DB /* PhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D2BEB228073EA50063F3DB /* PhoneNumberView.swift */; };
+		21D2BEB528073EAE0063F3DB /* VerficationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D2BEB428073EAE0063F3DB /* VerficationView.swift */; };
+		21D2BEB728073EB70063F3DB /* CreateProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D2BEB628073EB70063F3DB /* CreateProfileView.swift */; };
+		21D2BEB928073EBF0063F3DB /* SyncContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D2BEB828073EBF0063F3DB /* SyncContactsView.swift */; };
+		21D2BEBB2808AE820063F3DB /* OnboardingButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D2BEBA2808AE820063F3DB /* OnboardingButtonStyle.swift */; };
+		21D2BEBD2808BCD80063F3DB /* CreateProfileTextfieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D2BEBC2808BCD80063F3DB /* CreateProfileTextfieldStyle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +54,14 @@
 		215A8B2327FD7C6200084169 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		215A8B2527FDA26300084169 /* MyChat.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyChat.entitlements; sourceTree = "<group>"; };
 		215A8B2627FDA96D00084169 /* AuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthViewModel.swift; sourceTree = "<group>"; };
+		21D2BEAE28073D060063F3DB /* OnboardingContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingContainerView.swift; sourceTree = "<group>"; };
+		21D2BEB028073E990063F3DB /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		21D2BEB228073EA50063F3DB /* PhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberView.swift; sourceTree = "<group>"; };
+		21D2BEB428073EAE0063F3DB /* VerficationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerficationView.swift; sourceTree = "<group>"; };
+		21D2BEB628073EB70063F3DB /* CreateProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileView.swift; sourceTree = "<group>"; };
+		21D2BEB828073EBF0063F3DB /* SyncContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncContactsView.swift; sourceTree = "<group>"; };
+		21D2BEBA2808AE820063F3DB /* OnboardingButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingButtonStyle.swift; sourceTree = "<group>"; };
+		21D2BEBC2808BCD80063F3DB /* CreateProfileTextfieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateProfileTextfieldStyle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				215A8AEE27FD214D00084169 /* ContentView.swift */,
+				21D2BEAD28073CF70063F3DB /* Onboarding */,
 				215A8B0927FD6C1600084169 /* CustomTabBar */,
 			);
 			path = View;
@@ -144,6 +161,8 @@
 			children = (
 				215A8B0727FD296B00084169 /* Fonts.swift */,
 				215A8B0E27FD741600084169 /* Colors.swift */,
+				21D2BEBA2808AE820063F3DB /* OnboardingButtonStyle.swift */,
+				21D2BEBC2808BCD80063F3DB /* CreateProfileTextfieldStyle.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -165,6 +184,19 @@
 				215A8B0C27FD729F00084169 /* TabBarButton.swift */,
 			);
 			path = CustomTabBar;
+			sourceTree = "<group>";
+		};
+		21D2BEAD28073CF70063F3DB /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				21D2BEAE28073D060063F3DB /* OnboardingContainerView.swift */,
+				21D2BEB028073E990063F3DB /* WelcomeView.swift */,
+				21D2BEB228073EA50063F3DB /* PhoneNumberView.swift */,
+				21D2BEB428073EAE0063F3DB /* VerficationView.swift */,
+				21D2BEB628073EB70063F3DB /* CreateProfileView.swift */,
+				21D2BEB828073EBF0063F3DB /* SyncContactsView.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,13 +284,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				215A8B0B27FD71DF00084169 /* CustomTabBar.swift in Sources */,
+				21D2BEBD2808BCD80063F3DB /* CreateProfileTextfieldStyle.swift in Sources */,
 				215A8B0F27FD741600084169 /* Colors.swift in Sources */,
 				215A8AEF27FD214D00084169 /* ContentView.swift in Sources */,
+				21D2BEB328073EA50063F3DB /* PhoneNumberView.swift in Sources */,
 				215A8B0827FD296B00084169 /* Fonts.swift in Sources */,
+				21D2BEB528073EAE0063F3DB /* VerficationView.swift in Sources */,
+				21D2BEB928073EBF0063F3DB /* SyncContactsView.swift in Sources */,
+				21D2BEBB2808AE820063F3DB /* OnboardingButtonStyle.swift in Sources */,
 				215A8B2727FDA96D00084169 /* AuthViewModel.swift in Sources */,
+				21D2BEB728073EB70063F3DB /* CreateProfileView.swift in Sources */,
+				21D2BEB128073E990063F3DB /* WelcomeView.swift in Sources */,
 				215A8B2427FD7C6200084169 /* AppDelegate.swift in Sources */,
 				215A8B0D27FD729F00084169 /* TabBarButton.swift in Sources */,
 				215A8AED27FD214D00084169 /* MyChatApp.swift in Sources */,
+				21D2BEAF28073D060063F3DB /* OnboardingContainerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

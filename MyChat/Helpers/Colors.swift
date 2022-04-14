@@ -10,7 +10,7 @@ import SwiftUI
 extension Color {
     
     struct Palette {
-        static var Background: Color {
+        static var Background: Color { 
             return Color("background")
         }
         
@@ -34,8 +34,8 @@ extension Color {
             return Color("text-input")
         }
         
-        static var TextPrimary: Color {
-            return Color("text-primary")
+        static var TextBackground: Color {
+            return Color("text-background")
         }
     }
 }
