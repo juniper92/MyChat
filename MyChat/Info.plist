@@ -19,5 +19,7 @@
 		<string>ONE Mobile Light.ttf</string>
 		<string>ONE Mobile Regular.ttf</string>
 	</array>
+	<key>NSContactsUsageDescription</key>
+	<string>연락처를 동기화하고 채팅을 시작합니다.</string>
 </dict>
 </plist>

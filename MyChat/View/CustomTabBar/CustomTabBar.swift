@@ -26,7 +26,9 @@ struct CustomTabBar: View {
             .tint(Color.Palette.IconsSecondary)
             
             Button {
-                
+                // new chat 
+                // TODO: this is not going to be the permanent home for logout
+                AuthViewModel.logout()
             } label: {
                 VStack(alignment: .center, spacing: 4) {
                     Image(systemName: "plus.circle.fill")

@@ -13,24 +13,38 @@ struct ContentView: View {
     
     @State var isOnboarding = !AuthViewModel.isUserLoggedIn()
     
+    @State var isChatShowing = false
+    
     var body: some View {
-        VStack {
+        ZStack {
+            Color.Palette.Background
+                .ignoresSafeArea()
             
-            Text("dd")
-                .padding()
-                .font(Font.chatHeading)
-            
-            Spacer()
-            
-            CustomTabBar(selectedTab: $selectedTab)
+            VStack {
+                
+                switch selectedTab {
+                    
+                case .chats:
+                    ChatsListView()
+                case .contacts:
+                    ContactsListView(isChatShowing: $isChatShowing)
+                }
+                
+                Spacer()
+                
+                CustomTabBar(selectedTab: $selectedTab)
+            }
         }
         .fullScreenCover(isPresented: $isOnboarding) {
             // On dismiss
         } content: {
-            // the onboarding sequence
+            // 온보딩 시퀀스
             OnboardingContainerView(isOnboarding: $isOnboarding)
         }
-
+        .fullScreenCover(isPresented: $isChatShowing, onDismiss: nil) {
+            // the conversation view
+            ConversationView(isChatShowing: $isChatShowing)
+        }
     }
 }
 

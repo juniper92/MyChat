@@ -14,6 +14,14 @@ struct CreateProfileView: View {
     @State var firstName = ""
     @State var lastName = ""
     
+    @State var selectedImage: UIImage?
+    @State var isPickerShowing: Bool = false
+    
+    @State var isSourceMenuShowing: Bool = false
+    @State var source: UIImagePickerController.SourceType = .photoLibrary
+    
+    @State var isSaveButtonDisabled: Bool = false
+    
     var body: some View {
         
         VStack {
@@ -27,19 +35,27 @@ struct CreateProfileView: View {
             
             Spacer()
             
-            // Profile image button
+            // 프로필이미지 버튼
             Button {
-                // show action sheet
+                // 액션시트 출력
+                isSourceMenuShowing = true
             } label: {
                 
                 ZStack {
-                    Circle()
-                        .foregroundColor(.white)
-                    
+                    if selectedImage != nil {
+                        Image(uiImage: selectedImage!)
+                            .resizable()
+                            .scaledToFill()
+                            .clipShape(Circle())
+                    }
+                    else {
+                        Circle()
+                            .foregroundColor(.white)
+                        
+                        Image(systemName: "camera.fill")
+                    }
                     Circle()
                         .stroke(lineWidth: 2)
-                    
-                    Image(systemName: "camera.fill")
                 }
                 .tint(Color.Palette.ButtonPrimary)
                 .frame(width: 134, height: 134)
@@ -57,18 +73,61 @@ struct CreateProfileView: View {
             
             Spacer()
             
-            // Next Step
             Button {
-                currentStep = .contacts
+                
+                // TODO: check that firstname/lastname fields are filled before allowing
+                
+                // 더블탭 방지
+                isSaveButtonDisabled = true
+                
+                // 데이터 저장
+                DatabaseService().setUserProfile(firstName: firstName,
+                                                 lastName: lastName,
+                                                 image: selectedImage) { isSuccess in
+                    if isSuccess {
+                        currentStep = .contacts
+                    }
+                    else {
+                        // TODO: 사용자에게 오류 메시지 표시
+                        
+                    }
+                    isSaveButtonDisabled = false
+                }
+                
             } label: {
-                Text("Next")
+                Text(isSaveButtonDisabled ? "프로필 업로드중.." : "저장")
             }
             .buttonStyle(OnboardingButtonStyle())
+            .disabled(isSaveButtonDisabled)
             .padding(.bottom, 87)
             
         }
         .padding(.horizontal)
-        
+        .confirmationDialog("From where?", isPresented: $isSourceMenuShowing, actions: {
+            
+            Button {
+                // 포토 라이브러리 - 이미지피커 출력
+                self.source = .photoLibrary
+                isPickerShowing = true
+            } label: {
+                Text("포토 라이브러리")
+            }
+            
+            if UIImagePickerController.isSourceTypeAvailable(.camera) {
+                Button {
+                    // 카메라 - 이미지피커 출력
+                    self.source = .camera
+                    isPickerShowing = true
+                } label: {
+                    Text("사진 촬영")
+                }
+                
+            }
+        })
+        .sheet(isPresented: $isPickerShowing) {
+            // 이미지피커 출력
+            ImagePicker(selectedImage: $selectedImage, isPickerShowing: $isPickerShowing, source: self.source)
+        }
     }
 }
 

@@ -37,5 +37,9 @@ extension Color {
         static var TextBackground: Color {
             return Color("text-background")
         }
+        
+        static var ChatInput: Color {
+            return Color("chat-input")
+        }
     }
 }

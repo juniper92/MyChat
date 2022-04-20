@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SyncContactsView: View {
-    
+        
     @Binding var isOnboarding: Bool
     
     var body: some View {

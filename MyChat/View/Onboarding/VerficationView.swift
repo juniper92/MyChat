@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import Combine
 
 struct VerficationView: View {
     
     @Binding var currentStep: OnboardingStep
+    @Binding var isOnboarding: Bool 
     
     @State var verificationCode = ""
     
@@ -20,7 +22,7 @@ struct VerficationView: View {
                 .font(Font.titleText)
                 .padding(.top, 52)
             
-            Text("Enter the 6-digit verification code we sent to your device.")
+            Text("발송된 6자의 인증번호를 입력하세요.")
                 .font(Font.bodyText)
                 .padding(.top, 12)
             
@@ -33,6 +35,11 @@ struct VerficationView: View {
                 HStack {
                     TextField("", text: $verificationCode)
                         .font(Font.bodyText)
+                        // 키보드타입 설정
+                        .keyboardType(.numberPad)
+                        .onReceive(Just(verificationCode)) { _ in
+                            TextHelper.limitText(&verificationCode, 6)
+                        }
                     
                     Spacer()
                     
@@ -50,10 +57,29 @@ struct VerficationView: View {
             
             Spacer()
             
-            
-            // Next Step
             Button {
-                currentStep = .profile
+                // send the verification code to firebase
+                AuthViewModel.verifyCode(code: verificationCode) { error in
+                    // check errors
+                    if error == nil {
+                        
+                        // check if this usr has a profile
+                        DatabaseService().checkUserProfile { exists in
+                            if exists {
+                                // end the onboarding
+                                isOnboarding = false
+                            }
+                            else {
+                                // move to the profile creation step
+                                currentStep = .profile
+                            }
+                        }
+                        
+                    } else {
+                        // TODO: Show error message
+                    }
+                }
+                
             } label: {
                 Text("Next")
             }
@@ -67,6 +93,6 @@ struct VerficationView: View {
 
 struct VerficationView_Previews: PreviewProvider {
     static var previews: some View {
-        VerficationView(currentStep: .constant(.verification))
+        VerficationView(currentStep: .constant(.verification), isOnboarding: .constant(true))
     }
 }
