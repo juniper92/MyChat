@@ -61,19 +61,18 @@ class ContactsViewModel: ObservableObject {
     
     func filterContacts(filterBy: String) {
         
-        // store parameter into property
+        // 매개변수 프로퍼티에 저장
         self.filterText = filterBy
         
-        // if filter text is empty, then reveal all users
+        // 필터 텍스트 비어있으면 모든 사용자 표시하기
         if filterText == "" {
             self.filteredUsers = users
             return
         }
         
-        // run the users list through the filter term to get a list of filtered users
+        // 필터링된 사용자 목록 가져오기
         self.filteredUsers = users.filter({ user in
             
-            // criteria for including this user into filtered users list
             user.firstname?.lowercased().contains(filterText) ?? false ||
             user.lastname?.lowercased().contains(filterText) ?? false ||
             user.phone?.lowercased().contains(filterText) ?? false

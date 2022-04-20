@@ -16,7 +16,7 @@ struct PhoneNumberView: View {
     var body: some View {
         
         VStack {
-            Text("Verification")
+            Text("본인인증")
                 .font(Font.titleText)
                 .padding(.top, 52)
             
@@ -65,13 +65,13 @@ struct PhoneNumberView: View {
                         // 다음 스텝
                         currentStep = .verification
                     } else {
-                        // TODO: show an error
+                        // TODO: 에러출력
 
                     }
                 }
                 
             } label: {
-                Text("Next")
+                Text("다음으로")
             }
             .buttonStyle(OnboardingButtonStyle())
             .padding(.bottom, 87)

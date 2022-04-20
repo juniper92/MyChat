@@ -20,11 +20,11 @@ struct WelcomeView: View {
                 .resizable()
                 .scaledToFit()
             
-            Text("Welcome to Chat App")
+            Text("채팅 앱")
                 .font(Font.titleText)
                 .padding(.top, 32)
             
-            Text("Simple and fuss-free chat experience")
+            Text("안녕하세요 채팅앱이에요")
                 .font(Font.bodyText)
                 .padding(.top, 8)
             
@@ -33,11 +33,11 @@ struct WelcomeView: View {
             Button {
                 currentStep = .phonenumber
             } label: {
-                Text("Get Started")
+                Text("시작하기")
             }
             .buttonStyle(OnboardingButtonStyle())
             
-            Text("By tapping 'Get Started', you agree to our Privacy Policy.")
+            Text("'시작하기'를 클릭하면 이용약관에 동의한 것으로 간주함")
                 .font(Font.smallText)
                 .padding(.top, 14)
                 .padding(.bottom, 61)

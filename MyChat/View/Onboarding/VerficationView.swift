@@ -18,7 +18,7 @@ struct VerficationView: View {
     var body: some View {
         
         VStack {
-            Text("Verification")
+            Text("본인인증")
                 .font(Font.titleText)
                 .padding(.top, 52)
             
@@ -58,30 +58,29 @@ struct VerficationView: View {
             Spacer()
             
             Button {
-                // send the verification code to firebase
+                // 파베에서 인증코드 보내기
                 AuthViewModel.verifyCode(code: verificationCode) { error in
-                    // check errors
+                    // 에러첵
                     if error == nil {
                         
-                        // check if this usr has a profile
+                        // 유저가 프로필 있는지 확인
                         DatabaseService().checkUserProfile { exists in
                             if exists {
-                                // end the onboarding
+                                // 온보딩 끝남 
                                 isOnboarding = false
                             }
                             else {
-                                // move to the profile creation step
                                 currentStep = .profile
                             }
                         }
                         
                     } else {
-                        // TODO: Show error message
+                        // TODO: 에러출력
                     }
                 }
                 
             } label: {
-                Text("Next")
+                Text("다음으로")
             }
             .buttonStyle(OnboardingButtonStyle())
             .padding(.bottom, 87)

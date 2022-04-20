@@ -25,11 +25,11 @@ struct CreateProfileView: View {
     var body: some View {
         
         VStack {
-            Text("Setup your Profile")
+            Text("프로필 설정")
                 .font(Font.titleText)
                 .padding(.top, 52)
             
-            Text("Just a few more details to get started.")
+            Text("후딱 끝내고 다음으로 넘어갑시다")
                 .font(Font.bodyText)
                 .padding(.top, 12)
             
@@ -64,18 +64,18 @@ struct CreateProfileView: View {
             Spacer()
             
             // first name
-            TextField("Given Name", text: $firstName)
+            TextField("이름", text: $firstName)
                 .textFieldStyle(CreateProfileTextfieldStyle())
             
             // last name
-            TextField("Last Name", text: $lastName)
+            TextField("성", text: $lastName)
                 .textFieldStyle(CreateProfileTextfieldStyle())
             
             Spacer()
             
             Button {
                 
-                // TODO: check that firstname/lastname fields are filled before allowing
+                // TODO: 넘어가기 전에 이름,성 필드 채워졌는지 확인하기
                 
                 // 더블탭 방지
                 isSaveButtonDisabled = true
@@ -88,7 +88,7 @@ struct CreateProfileView: View {
                         currentStep = .contacts
                     }
                     else {
-                        // TODO: 사용자에게 오류 메시지 표시
+                        // TODO: 사용자에게 에러 메시지 표시
                         
                     }
                     isSaveButtonDisabled = false
@@ -103,7 +103,7 @@ struct CreateProfileView: View {
             
         }
         .padding(.horizontal)
-        .confirmationDialog("From where?", isPresented: $isSourceMenuShowing, actions: {
+        .confirmationDialog("목록", isPresented: $isSourceMenuShowing, actions: {
             
             Button {
                 // 포토 라이브러리 - 이미지피커 출력

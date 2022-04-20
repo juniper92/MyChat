@@ -21,23 +21,19 @@ struct CustomTabBar: View {
             Button {
                 selectedTab = .chats
             } label: {
-                TabBarButton(buttonText: "Chats", imageName: "bubble.left", isActive: selectedTab == .chats)
+                TabBarButton(buttonText: "채팅", imageName: "bubble.left", isActive: selectedTab == .chats)
             }
             .tint(Color.Palette.IconsSecondary)
             
             Button {
-                // new chat 
-                // TODO: this is not going to be the permanent home for logout
+                // MARK: - 현재 로그아웃버튼으로 활용중..
                 AuthViewModel.logout()
             } label: {
                 VStack(alignment: .center, spacing: 4) {
                     Image(systemName: "plus.circle.fill")
                         .resizable()
                         .scaledToFit()
-                        .frame(width: 32, height: 32)
-                    
-                    Text("New Chat")
-                        .font(Font.tabBar)
+                        .frame(width: 50, height: 50)
                 }
             }
             .tint(Color.Palette.IconsPrimary)
@@ -47,7 +43,7 @@ struct CustomTabBar: View {
                 selectedTab = .contacts
             } label: {
                 
-                TabBarButton(buttonText: "Contacts", imageName: "person", isActive: selectedTab == .contacts)
+                TabBarButton(buttonText: "연락처", imageName: "person", isActive: selectedTab == .contacts)
             }
             .tint(Color.Palette.IconsSecondary)
 

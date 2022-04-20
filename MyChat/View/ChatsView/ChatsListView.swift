@@ -17,11 +17,11 @@ struct ChatsListView: View {
             
             List(chatViewModel.chats) { chat in
                 
-                Text(chat.id ?? "empty chat id")
+                Text(chat.id ?? "채팅id 없음")
             }
             
         } else {
-            Text("No chats")
+            Text("채팅 없어!!!!!")
         }
     }
 }

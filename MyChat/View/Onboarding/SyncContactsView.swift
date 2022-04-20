@@ -19,21 +19,21 @@ struct SyncContactsView: View {
                 .resizable()
                 .scaledToFit()
             
-            Text("Awesome!")
+            Text("설정 끝!")
                 .font(Font.titleText)
                 .padding(.top, 32)
             
-            Text("Continue to start chatting with your firends.")
+            Text("채팅을 시작합니다.")
                 .font(Font.bodyText)
                 .padding(.top, 8)
             
             Spacer()
             
             Button {
-                // End Onboarding
+                // 온보딩 끝
                 isOnboarding = false 
             } label: {
-                Text("Continue")
+                Text("시작하기")
             }
             .buttonStyle(OnboardingButtonStyle())
             .padding(.bottom, 87)

@@ -31,15 +31,15 @@ class AuthViewModel {
     
     static func sendPhoneNumber(phone: String, completion: @escaping (Error?) -> Void) {
         
-        // send the phone number to Firebase Auth
+        // Firebase Auth에 폰번호 보내기
         PhoneAuthProvider.provider().verifyPhoneNumber(phone, uiDelegate: nil) { verificationId, error in
             if error == nil {
-                // got the verification id
+                // 인증 id 가져오기
                 UserDefaults.standard.set(verificationId, forKey: "authVerificationID")
                 
             }
             DispatchQueue.main.async {
-                // notify the ui
+                // ui에 알림
                 completion(error)
             }
         }

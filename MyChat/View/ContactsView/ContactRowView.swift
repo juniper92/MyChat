@@ -14,16 +14,16 @@ struct ContactRowView: View {
     var body: some View {
         
         HStack(spacing: 24) {
-            // profile image
+            // 프로필이미지
             ProfilePicView(user: user)
             
             VStack(alignment: .leading, spacing: 4) {
-                // name
+                // 이름
                 Text("\(user.firstname ?? "") \(user.lastname ?? "")")
                     .font(Font.button)
                     .foregroundColor(Color.Palette.IconsPrimary)
                 
-                // phone number
+                // 폰번호
                 Text(user.phone ?? "")
                     .font(Font.bodyText)
                     .foregroundColor(Color.Palette.TextInput)

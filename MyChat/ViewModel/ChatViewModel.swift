@@ -13,6 +13,11 @@ class ChatViewModel: ObservableObject {
     @Published var chats = [Chat]()
     var databaseService = DatabaseService()
     
+    init() {
+        // ChatViewModel이 생성될 때 채팅 검색
+        getChats()
+    }
+    
     func getChats() {
         // db를 사용해 채팅 검색
         databaseService.getAllChats { chats in

@@ -82,7 +82,7 @@ class DatabaseService {
             return
         }
         
-        // get user's phone number
+        // 유저 폰번호 가져오기 
         let userPhone = TextHelper.sanitizePhoneNumber(AuthViewModel.getLoggedInUserPhone())
         
         // 파이어스토어 참조
@@ -114,10 +114,10 @@ class DatabaseService {
                 
                 if error == nil && meta != nil {
                     
-                    // get full url to image
+                    // 이미지 전체 url 가져오기
                     fileRef.downloadURL { url, error in
                         
-                        // check for errors
+                        // 에러첵
                         if url != nil && error == nil {
                             
                             // 프로필에 이미지경로 설정
@@ -129,7 +129,7 @@ class DatabaseService {
                             }
                         }
                         else {
-                            // wasn't successful in getting download url for photo
+                            // 사진 다운로드 url 가져오기 실패
                             completion(false)
                         }
                     }
@@ -141,7 +141,7 @@ class DatabaseService {
             }
         }
         else {
-            // no image was set
+            // 이미지 세팅안됨
             completion(true)
         }
     }
@@ -173,17 +173,85 @@ class DatabaseService {
     
     
     // MARK: - Chat Methods
-    
     /// 로그인한 사용자가 참여한 모든 채팅 도큐먼트 반환
     func getAllChats(completion: @escaping ([Chat]) -> Void) {
         
         // db참조
+        let db = Firestore.firestore()
         
         // 사용자가 참여한 모든 채팅 컬렉션에 대해 쿼리 수행
+        let chatsQuery = db.collection("chats").whereField("participantsids", arrayContains: AuthViewModel.getLoggedInUserId())
         
-        // Chat 구조체에서 데이터 파싱
+        chatsQuery.getDocuments { snapshot, error in
+            
+            if snapshot != nil && error == nil {
+                
+                var chats = [Chat]()
+                
+                // 반환된 모든 채팅 도큐먼트 루프
+                for doc in snapshot!.documents {
+                    
+                    // Chat 구조체에서 데이터 파싱
+                    let chat = try? doc.data(as: Chat.self)
+                    
+                    // 배열에 chat 넣기
+                    if let chat = chat {
+                        chats.append(chat)
+                    }
+                }
+                
+                // 데이터 리턴
+                completion(chats)
+            }
+            else {
+                print("에러!!!!! 에러!!!!!!!")
+            }
+        }
+    }
+    
+    
+    /// 지정된 채팅에 대한 모든 메시지 반환
+    func getAllMessages(chat: Chat, completion: @escaping ([ChatMessage]) -> Void) {
         
-        // 데이터 리턴
+        // id가 nil이 아닌지 확인하기
+        guard chat.id != nil else {
+            // 데이터 가져올 수 없음
+            completion([ChatMessage]())
+            return
+        }
         
+        // db 참조
+        let db = Firestore.firestore()
+        
+        // 쿼리 만들기
+        let msgsQuery = db.collection("chats").document(chat.id!).collection("msgs").order(by: "timestamp")
+        
+        // 쿼리 수행
+        msgsQuery.getDocuments { snapshot, error in
+            
+            if snapshot != nil && error == nil {
+                
+                // msg 도큐먼트 루프 및 ChatMessage 인스턴스 생성
+                var messages = [ChatMessage]()
+                
+                for doc in snapshot!.documents {
+                    
+                    let msg = try? doc.data(as: ChatMessage.self)
+                    
+                    if let msg = msg {
+                        messages.append(msg)
+                    }
+                }
+                
+                // 결과 리턴
+                completion(messages)
+            }
+            else {
+                print("에러!!!!! 에러!!!!!!!")
+            }
+            
+        }
+        
+  
     }
 }

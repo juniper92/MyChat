@@ -20,7 +20,7 @@ struct ContactsListView: View {
         VStack {
             // 헤더
             HStack {
-                Text("Contacts")
+                Text("연락처")
                     .font(Font.pageTitle)
                 
                 Spacer()

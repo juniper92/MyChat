@@ -14,7 +14,7 @@ struct ProfilePicView: View {
     var body: some View {
         
         ZStack {
-            // check if user has a photo set
+            // 유저 프로필 세팅되어있는지 확인하기
             if user.photo == nil {
                 
                 // 이름 첫 글자로 프로필 표시하기
@@ -28,7 +28,7 @@ struct ProfilePicView: View {
                 }
             }
             else {
-                // create url from user photo url
+                // 유저 포토 url에서 url 생성 
                 let photoUrl = URL(string: user.photo ?? "")
                 
                 AsyncImage(url: photoUrl) { phase in

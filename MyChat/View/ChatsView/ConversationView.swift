@@ -19,11 +19,10 @@ struct ConversationView: View {
                 VStack(alignment: .leading, spacing: 16){
                     
                     Button {
-                        // dismiss chat window
                         isChatShowing = false
                         
                     } label: {
-                        // back arrow
+                        // 백버튼
                         Image(systemName: "arrow.backward")
                             .resizable()
                             .scaledToFit()
@@ -31,15 +30,15 @@ struct ConversationView: View {
                             .foregroundColor(Color.Palette.ButtonPrimary)
                     }
 
-                    // name
-                    Text("Mila Yang")
+                    // 이름
+                    Text("SE3 살거야")
                         .font(Font.chatHeading)
                         .foregroundColor(Color.Palette.TextInput)
                 }
                 
                 Spacer()
                 
-                // profile image
+                // 프사
                 ProfilePicView(user: User())
             }
             .padding(.horizontal)
@@ -115,10 +114,11 @@ struct ConversationView: View {
                             .foregroundColor(Color.Palette.TextBackground)
                             .cornerRadius(50)
                         
-                        TextField("Type your message", text: $chatMessage)
+                        TextField("끄적끄적", text: $chatMessage)
                             .foregroundColor(Color.Palette.TextInput)
                             .font(Font.bodyText)
                             .padding(10)
+                            .padding(.leading)
                         
                         
                         // MARK: 이모지버튼
@@ -142,7 +142,7 @@ struct ConversationView: View {
                     
                     // MARK: 보내기 버튼
                     Button {
-                        // TODO: send message
+                        // TODO: 메시지보내기
                     } label: {
                         Image(systemName: "paperplane.fill")
                             .resizable()
